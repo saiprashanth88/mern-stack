@@ -18,6 +18,8 @@ app.get("/samplecard", function(req, res){
 	res.sendFile(__dirname+"/samplecard.html")
 });
 
+
+
 mongoose.connect(process.env.MONGO_CONNECTION_STRING,{},function(err){
 	if(err)
 	{
