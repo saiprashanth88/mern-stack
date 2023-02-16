@@ -25,22 +25,70 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err) {
         console.error(err);
     } else {
         console.log('Connected to database');
+
+
+        // userLib.createUser({
+        //     userName:"beingzero",
+        //     yearOfGraduation:2040,
+        // },function(err,result){
+        //     if(err){
+        //         console.error(err);
+        //     }
+        //     else{
+        //         console.log(result);
+        //     }
+        // });
         // TODO : donot create a user if atleast 1 user exist in the table
-        userLib.getAllUsers(function(err, usersList) {
-            if (err) {
-                console.error(err);
-            } else {
-                if (usersList.length === 0) {
-                    userLib.createFirstUser(function(err, res) {
-                        if (err) {
-                            console.error(err);
-                        } else {
-                            console.log(res);
-                        }
-                    });
+        // userLib.getAllUsers(function(err, usersList) {
+        //     if (err) {
+        //         console.error(err);
+        //     } else {
+        //         if (usersList.length === 0) {
+        //             userLib.createFirstUser(function(err, res) {
+        //                 if (err) {
+        //                     console.error(err);
+        //                 } else {
+        //                     console.log(res);
+        //                 }
+        //             });
+        //         }
+        //     }
+        // });
+
+        // userLib.deleteUser("saiprashanth88",function(err,result){
+        //     if(err){
+        //         console.error(err);
+        //     }
+        //     else{
+        //         console.log(result);
+        //     }
+
+        // });
+
+        userLib.getUserByFilter({userNmae:"Prashanth"},function(err,result){
+                if(err){
+                    console.error(err);
                 }
-            }
+                else{
+                    confirm.log(result);
+                }
         });
+
+
+        // userLib.updateUser(function(err,result){
+        //     if(err){
+        //         console.log(err);
+        //     }
+        //     else{
+        //         confirm.log(result);
+        //     }
+
+        // });
+
+
+
+
+
         app.listen(port, function() {
             console.log('Server started on port ' + port);
         });
