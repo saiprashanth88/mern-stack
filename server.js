@@ -18,6 +18,9 @@ app.get('/resume', function(req, res) {
 app.get('/samplecard', function(req, res) {
     res.sendFile(__dirname + '/samplecard.html');
 });
+app.get('/weather', function(req, res) {
+    res.sendFile(__dirname + '/weather.html');
+});
 
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err) {
@@ -65,14 +68,14 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err) {
 
         // });
 
-        userLib.getUserByFilter({userNmae:"Prashanth"},function(err,result){
-                if(err){
-                    console.error(err);
-                }
-                else{
-                    confirm.log(result);
-                }
-        });
+        // userLib.getUserByFilter({userNmae:"Prashanth"},function(err,result){
+        //         if(err){
+        //             console.error(err);
+        //         }
+        //         else{
+        //             confirm.log(result);
+        //         }
+        // });
 
 
         // userLib.updateUser(function(err,result){

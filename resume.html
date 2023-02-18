@@ -6,22 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Resume</title>
     <style>
+        .container{
+            justify-content: center;
+            display: flex;
+
+            background-repeat: no-repeat;
+        }
          body {
         background-color: #b1d7f8;
 
       }
       h1 {
         color: black;
+        justify-content: center;
       }
 
-        #header {
+        /* .header {
         text-align: center;
+
+        display: flex;
         margin-top: 50px;
-        }
+
+        } */
 
         #contact {
-        margin-top: 20px;
+        margin-top: 30px;
 
+        }
+        .top{
+            /* justify-content: center; */
+            display: flex;
         }
 
         #contact a {
@@ -73,7 +87,8 @@
         font-weight: bold;
         }
         .details{
-            margin-left: 430px;
+            content: none;
+            justify-content: center;
         }
 
         .Projects {
@@ -154,9 +169,9 @@
 
 </head>
 <body>
-    <div id="header">
-        <h1>Amudala Sai Prashanth</h1>
-    </div>
+    <h1 class="top">Amudala Sai Prashanth</h1>
+    <div class="container">
+
     <div class="details">
 
     <div id="contact">
@@ -266,5 +281,6 @@
     </div>
 
     </div>
+</div>
 </body>
 </html>
