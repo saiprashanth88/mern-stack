@@ -21,6 +21,9 @@ app.get('/samplecard', function(req, res) {
 app.get('/weather', function(req, res) {
     res.sendFile(__dirname + '/weather.html');
 });
+app.get('/todo', function(req, res) {
+    res.sendFile(__dirname + '/todo.html');
+});
 
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err) {

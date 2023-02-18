@@ -72,3 +72,67 @@ module.exports.getUserByFilter = async function(username,callback){
         callback(err,null);
     }
 }
+
+const toDoModel = require("../models/userModel");
+// getAllTodos
+// - getTodosByQuery
+// - getSingleTodoById
+// - createTodo
+// - updateTodoById
+// - deleteTodoById
+
+
+module.exports.createToDo = async function(user,callback) {
+    try {
+
+        var newUser = new toDoModel(user);
+        var result = await newUser.save();
+        callback(null, result);
+    } catch (err) {
+        callback(err, null);
+    }
+}
+module.exports.updateToDoById = async function(id,datacallback){
+    try{
+
+
+        var result = await toDoModel.updateOne(id,data);
+        callback(null,result);
+
+    }
+    catch(err){
+        callback(err,null);
+    }
+}
+
+module.exports.deleteToDoById = async function(id,callback){
+    try{
+
+
+        var result = await toDoModel.updateOne(id,{isDeleted:true});
+        callback(null,result);
+
+    }
+    catch(err){
+        callback(err,null);
+    }
+}
+module.exports.getAllTodos = async function(callback) {
+    try {
+        var users = await toDoModel.find({isDeleted:false});
+        callback(null, users);
+    } catch (err) {
+        callback(err, null);
+    }
+}
+module.exports.getTodosByQuery = async function(id,callback){
+    try{
+        var result = await toDoModel.find(callback);
+        callback(null,result);
+
+
+    }
+    catch(err){
+        callback(err,null);
+    }
+}
